@@ -16,7 +16,7 @@
 
 
         function mount(vnode, container){
-            const el = document.createElement(vnode.tag);
+            const el = vnode.el =  document.createElement(vnode.tag);
 
             if(vnode.props){
                 for (const key in vnode.props) {
@@ -36,6 +36,9 @@
 
             container.appendChild(el)
         }
+
+        function patch(vnode1, vnode2){}
+        
         const vdom = h('div', {class: 'red'}, [
             h('span', {class: 'child'}, [
                 h('p', {class: 'some'}, 'I am P tag')
@@ -43,4 +46,6 @@
         ])
 
         mount(vdom, document.getElementById('app'));
+
+        patch()
     </script>
